@@ -8,19 +8,21 @@
 
 int main()
 {
-	int go = 1;
 	char command[100];
 	char * username = getenv("USER");
-	while(go)
+
+	while(1)
 	{
 		printf("[bash @ %s]: ", username);
 		strcpy(command, readline(""));
+		add_history(command);
 
 		char ** args = parse_args(command);
 
 		if(!strcmp(args[0], "exit"))
 		{
-			go = 0;
+			printf("Thank you %s, have a good day!\n", username);	
+			return 0;
 		}
 		print_array(args);
 		execvp(args[0], args);
