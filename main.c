@@ -1,29 +1,21 @@
 #include <stdio.h>
+#include <readline/readline.h>
+#include <readline/history.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
 #include "args.h"
 
-int print_array(char ** arr)
-{
-	int i = 0;
-	while(*arr)
-	{
-		printf("%s, ", arr[i]);
-		**arr++;
-	}
-	printf("\n");
-}
-
 int main()
 {
 	int go = 1;
 	char command[100];
-
+	char * username = getenv("USER");
 	while(go)
 	{
-		printf("[bash]: ");
-		fgets( command, 100, stdin);
+		printf("[bash @ %s]: ", username);
+		strcpy(command, readline(""));
+
 		char ** args = parse_args(command);
 
 		if(!strcmp(args[0], "exit"))
