@@ -6,6 +6,7 @@
 #include <string.h>
 #include <sys/wait.h>
 #include "args.h"
+#include "execute.h"
 
 int main()
 {
@@ -25,13 +26,11 @@ int main()
 			printf("Thank you %s, have a good day!\n", username);	
 			return 0;
 		}
-		print_array(args);
-		pid_t child = fork();
-		if (child)
-		{
-			execvp(args[0], args);
-		}
-		wait(&child);
+
+		//for debugging test
+		//print_array(args);
+		
+		execute_command(args);
 	}
 	return 0;
 }

@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/wait.h>
+#include <unistd.h>
 
 //takes in a string formatted as a bash command
 //returns a character array that is formatted such that
@@ -36,4 +38,3 @@ void print_array(char ** arr)
 	}
 	printf("\n");
 }
-
