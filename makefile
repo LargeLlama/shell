@@ -1,5 +1,5 @@
 all: main.o args.o execute.o
-	@gcc -lreadline -o shell main.o args.o execute.o
+	@gcc -lncurses -lreadline -o shell main.o args.o execute.o
 
 main.o: main.c
 	@gcc -c  main.c

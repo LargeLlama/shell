@@ -5,9 +5,9 @@
 #include <unistd.h>
 #include <string.h>
 #include <sys/wait.h>
+#include <curses.h>
 #include "args.h"
 #include "execute.h"
-
 #define PATH_MAX		4096 //max characters allowed in pathname //
 
 int main()
