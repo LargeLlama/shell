@@ -19,6 +19,13 @@ void execute_command(char ** arguments)
 		{
 			printf("");
 		}
+		else if(!strcmp(arguments[0], "ls"))
+		{
+			char * args[2];
+			strcpy(args[0], "ls");
+			strcpy(args[1], "--color=auto");
+			execvp(args[0], args);
+		}
 		else if (execvp(arguments[0], arguments) < 1)
 		{
 			printf("Unrecognized command\n");

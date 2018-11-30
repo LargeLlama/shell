@@ -8,13 +8,21 @@
 #include "args.h"
 #include "execute.h"
 
+#define PATH_MAX		4096 //max characters allowed in pathname //
+
 int main()
 {
 	char command[100];
 	char * username = getenv("USER");
+	char cwd[PATH_MAX];
 
 	while(1)
 	{
+		if (getcwd(cwd, sizeof(cwd)))
+		{
+			printf("\033[0;34m%s\033[0m - ", cwd);
+		}
+
 		printf("[bash @ %s]: ", username);
 		strncpy(command, readline(""), 100);
 
