@@ -5,9 +5,10 @@
 #include <unistd.h>
 #include <string.h>
 #include <sys/wait.h>
-#include <curses.h>
 #include "args.h"
 #include "execute.h"
+
+
 #define PATH_MAX		4096 //max characters allowed in pathname //
 
 int main()
@@ -20,10 +21,10 @@ int main()
 	{
 		if (getcwd(cwd, sizeof(cwd)))
 		{
-			printf("\033[0;34m%s\033[0m - ", cwd);
+			printf("\033[1;32m%s\033[0m - ", cwd);
 		}
 
-		printf("[bash @ %s]: ", username);
+		printf("[shell @ %s]: ", username);
 		strncpy(command, readline(""), 100);
 
 		if(!strlen(command))
@@ -48,5 +49,6 @@ int main()
 		
 
 	}
+
 	return 0;
 }
