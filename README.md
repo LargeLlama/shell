@@ -15,3 +15,7 @@
 #### execute.c
 	Handles the forking and execution of commands
 	[ details here ]
+
+
+### Bugs
+- Whenever the backspace is pressed after something was typed in and it reaches the prompt, the prompt is erased.  Stuff can still be entered and parsed though.
