@@ -17,20 +17,28 @@ int main()
 	{
 		printf("[bash @ %s]: ", username);
 		strncpy(command, readline(""), 100);
-		add_history(command);
+
+		if(!strlen(command))
+		{
+			add_history(command);
+		}
 
 		char ** args = parse_args(command);
 
-		if(!strcmp(args[0], "exit"))
+		int option = is_custom(args);
+		
+		if(option)
 		{
-			printf("Thank you %s, have a good day!\n", username);	
-			return 0;
+			execute_custom_command(args, option);
 		}
-
+		else
+		{
+			execute_command(args);
+		}
 		//for debugging test
 		//print_array(args);
 		
-		execute_command(args);
+
 	}
 	return 0;
 }
