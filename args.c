@@ -63,6 +63,7 @@ char ** parse_args( char * line )
 //    //return it
 //    return args;
 }
+    }
 
 //debug function that takes in an array of characters and prints each
 //item out - returns nothing
