@@ -1,16 +1,17 @@
 # Project 1
 ## Shell[ing] out commands
-#### By Rubin Peci and Tamzid Ullah
+#### By Rubin Peci 
 
 ### Features
 	- Forks and executes commands
 	- Able to show the current user and the current directory
 	- Runs all basic bash commands one at a time
+	- Tab auto-complete works (to an extent)
+	- Semicolon to separate commands (see bugs for more details)
 	- Will make your wife come back, guaranteed!
 
 ### Features NOT implemented
 	- Pipes | and redirection >, <
-	- Separate commands by semicolon
 
 ### Files and Function Headers
 #### args.c
@@ -44,3 +45,9 @@ void execute_custom_command( char ** arguments, int option );
 
 ### Bugs
 - Whenever the backspace is pressed after something was typed in and it reaches the prompt, the prompt is erased.  Stuff can still be entered and parsed though.
+- Using the tab autocomplete feature can cause the prompt to disappear as mentioned, but commands and whatnot can still be parsed
+- Semicolons to separate commands work as long as there are no spaces in between commands. See below for example
+	`ls ; cd ..` is INCORRECT
+	`ls;cd ..` is CORRECT
+- ls flags don't work because it is implemented as a custom command in order to automatically add the --color=auto flag
+- spaces after any commands that take parameters and flags will cause the command to not work/not be parsed properly

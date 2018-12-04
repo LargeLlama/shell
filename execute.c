@@ -5,8 +5,8 @@
 #include <unistd.h>
 #include "args.h"
 
-//TODO figure out why the ls_args array must be defined globally here - I can't define it in the function execute_custom_command
-char * ls_args[2];
+//TODO figure out why the ls_args array must be defined globally here - I can't define it in the function execute_custom_command 
+char * ls_args[100];
 
 void execute_command(char ** arguments)
 {
@@ -78,7 +78,14 @@ void execute_custom_command(char ** arguments, int option)
 	}
 	else if(option == 2)
 	{
-		chdir(arguments[1]);
+		if(!chdir(arguments[1]))
+		{
+			return;
+		}
+		else
+		{
+			printf("Invalid directory!\n");
+		}
 	}
 	else if(option == 3)
 	{
@@ -90,6 +97,17 @@ void execute_custom_command(char ** arguments, int option)
 		ls_args[0] = "ls";
 		ls_args[1] = "--color=auto";
 
+		//printf("able to put the first two elements into ls_args\n");
+		/*int i = 2;
+		*arguments++;
+		while(*arguments++)
+		{
+			//printf("i is currently %d, and arguments[i] is %s\n", i, arguments[i]);
+			strcpy(ls_args[i], arguments[i]);
+			i += 1;
+		}
+		//print_array(ls_args);
+		*/
 		execute_command(ls_args);
 	}
 }
