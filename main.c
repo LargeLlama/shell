@@ -46,12 +46,6 @@ int main()
 		printf("[shell @ %s]: ", username);
 		strncpy(command, readline(""), 100);
 
-		//if it isn't empty, we add it to the history
-		if(!strlen(command))
-		{
-			add_history(command);
-		}
-
 		char * copy = strdup(command);
 		char * prev;
 
@@ -63,7 +57,7 @@ int main()
 
 			//check if it's a custom command
 			int option = is_custom(args);
-			
+
 			//if it is, run the appropriate function, otherwise execute it normally
 			if(option)
 			{

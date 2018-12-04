@@ -42,6 +42,19 @@ int is_custom( char ** arguments );
 //output: returns nothing, but executes the command based on the option
 void execute_custom_command( char ** arguments, int option );
 ```
+#### main.c
+##### The main file that is run
+```c
+//input: an int representing the signal sent
+//output: nothing, just prints a special message when the SIGINT (Ctrl-C) signal is caught
+void sig_handler(int sig)
+
+//the main function that is run when shell is executed
+int main()
+
+
+
+```
 
 ### Bugs
 - Whenever the backspace is pressed after something was typed in and it reaches the prompt, the prompt is erased.  Stuff can still be entered and parsed though.
