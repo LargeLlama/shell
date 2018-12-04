@@ -1,6 +1,6 @@
 # Project 1
 ## Shell[ing] out commands
-#### By Rubin Peci
+#### By Rubin Peci and Tamzid Ullah
 
 ### Features
 	- Forks and executes commands
