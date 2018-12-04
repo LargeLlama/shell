@@ -1,8 +1,11 @@
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
+#include <unistd.h>
 #include <string.h>
 #include <sys/wait.h>
-#include <unistd.h>
+#include <errno.h>
+#include <limits.h>
+#include <fcntl.h>
 
 void redirect(int direction, int flag, char *file_name, int *fd_location) {
     int flags[3] = {O_CREAT | O_WRONLY, O_APPEND | O_CREAT | O_WRONLY, O_CREAT | O_RDONLY}, directions[3] = {STDOUT_FILENO, STDIN_FILENO, STDERR_FILENO};
