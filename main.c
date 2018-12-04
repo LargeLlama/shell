@@ -10,6 +10,12 @@
 
 
 #define PATH_MAX		4096 //max characters allowed in pathname //
+#define SIGINT			2	 //the only signal we need, unecessary to include entire library
+void sig_handler(int sig)
+{
+	printf("\ndeuces chief");	
+	exit(0);
+}
 
 int main()
 {
@@ -19,6 +25,8 @@ int main()
 
 	while(1)
 	{
+		signal(SIGINT, sig_handler);
+
 		if (getcwd(cwd, sizeof(cwd)))
 		{
 			printf("\033[1;32m%s\033[0m - ", cwd);
