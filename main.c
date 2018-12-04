@@ -34,16 +34,16 @@ int main()
 
 		char ** args = parse_args(command);
 
-		int option = is_custom(args);
-		
-		if(option)
-		{
-			execute_custom_command(args, option);
-		}
-		else
-		{
-			execute_command(args);
-		}
+//        int option = is_custom(args);
+//        
+//        if(option)
+//        {
+//            execute_custom_command(args, option);
+//        }
+//        else
+//        {
+//            execute_command(args);
+//        }
 		//for debugging test
 		//print_array(args);
 		
